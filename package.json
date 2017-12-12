@@ -6,9 +6,6 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "engines": {
-    "node": "8.9.1"
-  },
   "keywords": [
     "desarrollo",
     "software",
