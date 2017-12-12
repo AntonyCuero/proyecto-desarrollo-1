@@ -1,0 +1,30 @@
+{
+  "name": "proyecto-final-desarrollo-software-1",
+  "version": "1.0.0",
+  "description": "Proyecto final para la materia desarrollo de software 1, consiste en un puesto de comidas rapidas, inventario, y reportes",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "engines": {
+    "node": "8.9.1"
+  },
+  "keywords": [
+    "desarrollo",
+    "software",
+    "univalle",
+    "heroku",
+    "nodejs",
+    "express"
+  ],
+  "author": "george antony <thejunianthony@hotmail.com>",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  }
+}
