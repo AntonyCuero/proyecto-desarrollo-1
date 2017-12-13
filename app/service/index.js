@@ -34,7 +34,7 @@ module.exports.crearProducto = function crearProducto(req, res) {
 };
 module.exports.BuscarVenta = function BuscarVenta(req, res) {
     let request = req.params.id ? Venta.findById(req.params.id) : Venta.find();
-    request.populate('usuario').populate('producto');
+    request.populate('usuario').populate('productos.producto');
     request.exec(function (err, respuesta) {
         if (err) {
             res.send(err);

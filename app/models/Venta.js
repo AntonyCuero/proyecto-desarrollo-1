@@ -3,9 +3,11 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.ObjectId;
 
 let ventaSchema = {
-    cantidad: Number,
-    producto: { type: ObjectId, ref: 'Producto' },
+    productos: [{
+        cantidad: { type: Number },
+        producto: { type: ObjectId, ref: 'Producto' }
+    }],
     usuario: { type: ObjectId, ref: 'Usuario' }
 }
 let venta_model = new Schema(ventaSchema, { versionKey: false, timestamps: true });
-module.exports =  mongoose.model("Venta", venta_model);
+module.exports = mongoose.model("Venta", venta_model);
