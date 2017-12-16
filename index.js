@@ -5,10 +5,9 @@
     const app = express();
     const cors = require("cors");
     const { connect } = require('./app/db');
-    const { BuscarUsuario, crearUsuario, BuscarProducto, crearProducto, BuscarVenta, crearVenta } = require('./app/service/');
+    const { BuscarUsuario, crearUsuario, BuscarProducto, crearProducto, editarProducto, BuscarVenta, crearVenta } = require('./app/service/');
     const port = 8585;
     
-
     connect();
     app.set('port', port)
     app.use(cors());
@@ -24,6 +23,7 @@
     app.get("/api/productos", BuscarProducto);
     app.get("/api/producto/:id", BuscarProducto);
     app.post("/api/producto", crearProducto);
+    app.put("/api/producto/:id", editarProducto);
     //Ventas
     app.get("/api/ventas", BuscarVenta);
     app.get("/api/venta/:id", BuscarVenta);

@@ -32,6 +32,16 @@ module.exports.crearProducto = function crearProducto(req, res) {
         res.send(item);
     });
 };
+module.exports.editarProducto = function editarProducto(req, res) {
+    let request = Producto.findByIdAndUpdate(req.params.id, Object.assign({}, req.body), { new: true });
+    request.exec(function (err, respuesta) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(respuesta);
+        }
+    });
+};
 module.exports.BuscarVenta = function BuscarVenta(req, res) {
     let request = req.params.id ? Venta.findById(req.params.id) : Venta.find();
     request.populate('usuario').populate('productos.producto');
@@ -44,6 +54,12 @@ module.exports.BuscarVenta = function BuscarVenta(req, res) {
     });
 };
 module.exports.crearVenta = function crearVenta(req, res) {
+    let venta = new Venta(Object.assign({}, req.body));
+    venta.save(function (err, item) {
+        res.send(item);
+    });
+};
+module.exports.editarVenta = function editarVenta(req, res) {
     let venta = new Venta(Object.assign({}, req.body));
     venta.save(function (err, item) {
         res.send(item);
