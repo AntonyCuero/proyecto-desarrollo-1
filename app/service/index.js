@@ -60,7 +60,7 @@ module.exports.crearVenta = function crearVenta(req, res) {
     });
 };
 module.exports.editarVenta = function editarVenta(req, res) {
-    let request = Venta.findByIdAndUpdate(req.params.id, Object.assign({}, req.body), { new: true });
+    let request = Venta.findByIdAndUpdate(req.params.id, Object.assign({}, req.body), { new: true }).populate('usuario').populate('productos.producto');
     request.exec(function (err, respuesta) {
         if (err) {
             res.send(err);
