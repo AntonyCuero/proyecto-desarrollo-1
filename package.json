@@ -4,7 +4,7 @@
   "description": "Proyecto final para la materia desarrollo de software 1, consiste en un puesto de comidas rapidas, inventario, y reportes",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "npm install && nodemon index.js"
   },
   "keywords": [
     "desarrollo",
