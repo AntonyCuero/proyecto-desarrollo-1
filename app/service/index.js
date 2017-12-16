@@ -60,8 +60,12 @@ module.exports.crearVenta = function crearVenta(req, res) {
     });
 };
 module.exports.editarVenta = function editarVenta(req, res) {
-    let venta = new Venta(Object.assign({}, req.body));
-    venta.save(function (err, item) {
-        res.send(item);
+    let request = Venta.findByIdAndUpdate(req.params.id, Object.assign({}, req.body), { new: true });
+    request.exec(function (err, respuesta) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(respuesta);
+        }
     });
 };

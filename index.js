@@ -5,7 +5,7 @@
     const app = express();
     const cors = require("cors");
     const { connect } = require('./app/db');
-    const { BuscarUsuario, crearUsuario, BuscarProducto, crearProducto, editarProducto, BuscarVenta, crearVenta } = require('./app/service/');
+    const { BuscarUsuario, crearUsuario, BuscarProducto, crearProducto, editarProducto, BuscarVenta, crearVenta, editarVenta } = require('./app/service/');
     const port = 8585;
     
     connect();
@@ -28,6 +28,7 @@
     app.get("/api/ventas", BuscarVenta);
     app.get("/api/venta/:id", BuscarVenta);
     app.post("/api/venta", crearVenta);
+    app.put("/api/venta/:id", editarVenta);
 
     app.listen(port, function() {
         console.log(`backend corriendo en http://localhost:${port}/api/**`)
